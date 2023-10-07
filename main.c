@@ -5,17 +5,19 @@
 
 int main(int argc, char *argv[]) {
 	
-	int a;
+	unsigned int x;
+	int b;
 	
-	printf("Input the year : ");
-	scanf("%i", &a);
+	printf("Input a number : ");
+	scanf("%ui", &x);
 	
-	if ((a%4==0 && a%100!=0) || (a%400==0)){ // 4로 나누어 떨어지면서 100으로 나누어 떨어지지 않거나 400으로 나누어 떨어지면 윤년 
-		printf("is the year %i the leap year? : 1", a); // 윤년이면 1을 출력  
+	for (b=0; x != 0; x>>=1){
+		if (x & 1){
+			b++;
+		}
 	}
-	else {
-		printf("is the year %i the leap year? : 0", a); // 윤년이 아니면 0을 출력  
-	}
+	
+	printf("The result is : %i\n", b);
 	
 	return 0;
 }
